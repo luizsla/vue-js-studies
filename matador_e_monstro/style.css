@@ -1,0 +1,108 @@
+.secao {
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.placar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.placar .coluna {
+    width: 40%;
+}
+
+.placar .coluna h3 {
+    margin-top: 0;
+}
+
+.barra-vida {
+    width: 100%;
+    height: 30px;
+    border: solid 1px gray;
+}
+
+.contador-barra-vida {
+    height: 100%;
+    background-color: green;
+}
+
+
+.opcoes-jogo button:not(:last-of-type) {
+    margin-right: 1rem;
+}
+
+.botao {
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.botao:hover {
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
+}
+
+.botao-iniciar {
+    background-color: #4253af;
+    color: white;
+}
+
+.botao-ataque {
+    background-color: #e51c23;
+    color: white;
+}
+
+.botao-ataque-especial {
+    background-color: #ff9800;
+}
+
+.botao-curar {
+    background-color: #249b24;
+    color: white;
+}
+
+.botao-desistir {
+    background-color: gray;
+    color: white;
+}
+
+.lista-movimentos {
+    list-style-type: none;
+}
+
+.lista-movimentos li {
+    padding: 0.5rem 0.25rem;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    color: white;
+    margin-bottom: 0.25rem;
+}
+
+/* Classes de estado */
+.danger {
+    background-color: red;
+}
+
+.winner {
+    color: green;
+}
+
+.looser {
+    color: red;
+}
+
+.ataque-jogador {
+    background-color: #4253af;
+}
+
+.ataque-monstro {
+    background-color: #e51c23;
+}
+
+.cura-jogador {
+    background-color: #249b24;
+}

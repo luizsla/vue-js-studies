@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matador e Monstro</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main id="jogo">
+        <div class="secao">
+            <h1>O matador de Monstros</h1>
+        </div>
+        
+        <div class="secao">
+            <div class="placar">
+                <div class="coluna">
+                    <h3>Jogador</h3>
+                    
+                    <div class="barra-vida">
+                        <div class="contador-barra-vida" :class="{danger: vidaJogador <= 20}" :style="{width: vidaJogador + '%'}"></div>
+                    </div>
+                    <span>{{ vidaJogador }}%</span>
+                </div>
+
+                <div class="coluna">
+                    <h3>Monstro</h3>
+
+                    <div class="barra-vida">
+                        <div class="contador-barra-vida" :class="{danger: vidaMonstro <= 20}" :style="{width: vidaMonstro + '%'}"></div>
+                    </div>
+                    <span>{{ vidaMonstro }}%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="secao" v-if="jogoTerminou">
+            <h2 v-if="vidaMonstro == 0" class="winner">Você ganhou! :D</h2>
+            <h2 v-if="vidaJogador == 0" class="looser">Você perdeu! :(</h2>
+        </div>
+
+        <div class="secao opcoes-jogo">
+            <button type="button" class="botao botao-iniciar" v-if="!jogoIniciado" @click="iniciarJogo">Iniciar Jogo</button>
+            <!-- Opções de jogo -->
+            <template v-else>
+                <button type="button" class="botao botao-ataque" @click="gerarAtaque(false)">Ataque</button>
+                <button type="button" class="botao botao-ataque-especial" @click="gerarAtaque(true)">Ataque Especial</button>
+                <button type="button" class="botao botao-curar" @click="curar">Curar</button>
+                <button type="button" class="botao botao-desistir" @click="jogoIniciado = true">Desistir</button>
+            </template>
+        </div>
+
+        <div class="secao" v-if="logs.length > 0">
+            <ul class="lista-movimentos">
+                <li v-for="log in logs" :class="log.movimento">{{ log.mensagem }}</li>
+            </ul>
+        </div>
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
